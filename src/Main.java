@@ -118,6 +118,9 @@ public class Main {
                 case EVENTS:
                     funtion_events();
                     break;
+                case BYTAG:
+                    funtion_byTag(in);
+                    break;
 
                 default:
                     System.out.println("ERRO bitch");
@@ -128,6 +131,15 @@ public class Main {
         System.out.println("Exiting.");
         System.out.println();
         in.close();
+    }
+
+    private static void funtion_byTag(Scanner in) {
+        String tag = in.nextLine();
+        System.out.println(BY_TAG_1 + tag + BY_TAG_2);
+        Iterator<String> it = exp.EventIterator(tag);
+        while (it.hasNext())
+            System.out.println(it.next());
+
     }
 
     private static void funtion_events() {

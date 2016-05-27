@@ -24,4 +24,8 @@ public interface User {
 
     boolean canRegisterEvent();
 
+    boolean canComment();
+
+    public boolean canEnrol();
+
 }

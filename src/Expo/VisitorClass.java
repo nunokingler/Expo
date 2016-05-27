@@ -40,4 +40,14 @@ public class VisitorClass extends UserClass implements Visitor {
     public String toString() {
         return super.getEmail() + "; " + USER_NAME;
     }
+
+    @Override
+    public boolean canComment() {
+        return true;
+    }
+
+    @Override
+    public boolean canEnrol() {
+        return true;
+    }
 }

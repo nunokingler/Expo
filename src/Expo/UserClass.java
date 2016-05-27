@@ -51,4 +51,12 @@ public abstract class UserClass implements User {
     private boolean equals(UserClass u) {
         return u.getEmail().equals(this.email);
     }
+
+    public boolean canComment() {
+        return false;
+    }
+
+    public boolean canEnrol() {
+        return false;
+    }
 }
