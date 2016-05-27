@@ -173,11 +173,12 @@ public class ExpoFCTClass implements ExpoFCT {
             throw new UserNotAllowed();
         if (eventMap.containsKey(name))
             throw new EventNameTaken();
+        Staff stf = (Staff) log;
         Event e;
         if (Tags.length == 0) {
             e = new EventClass(description, name, log);
         } else {
-            e = new Activity(description, name, log, Tags);
+            e = new Activity(description, name, log, stf.getDepartment(), Tags);
             if (Tags.length == 0)
                 tags.get("").add(e);
             for (String s : Tags) {
@@ -205,10 +206,9 @@ public class ExpoFCTClass implements ExpoFCT {
         while (!changed) {
             changed = true;
             for (int i = 0; i < link.size() - 1; i++) {
-                if (link.get(i).getLikeNumber() > link.get(i + 1).getLikeNumber()) {
+                if (link.get(i).getEnroledNumber() > link.get(i + 1).getEnroledNumber()) {
                     Collections.swap(link, i, i + 1);
                     changed = false;
-                    //fazer iterador transportes percorrer tudo e ir adicionandpo por ordem a linked list. guardar a distancia e o transporte adicionado anteriormente ter antençao transportes com a mesma distancia
                 }
             }
         }

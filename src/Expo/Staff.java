@@ -6,4 +6,5 @@ package Expo;
  * 1996-Present no rights reserved
  **/
 public interface Staff {
+    String getDepartment();
 }

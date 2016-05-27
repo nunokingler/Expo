@@ -38,4 +38,9 @@ public class StaffClass extends UserClass implements Staff {
     public boolean canRegisterEvent() {
         return true;
     }
+
+    @Override
+    public String getDepartment() {
+        return Department;
+    }
 }

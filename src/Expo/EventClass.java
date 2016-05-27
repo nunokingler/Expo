@@ -114,6 +114,6 @@ public class EventClass implements Event {
 
     @Override
     public String toString() {
-        return name + "; " + responsable.getEmail() + "; " + +coments.size() + enroledUsers.size() + likeNumber + deslikeNumber;
+        return name + "; " + responsable.getEmail() + "; " + coments.size() + enroledUsers.size() + likeNumber + deslikeNumber;
     }
 }

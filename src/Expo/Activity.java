@@ -10,16 +10,18 @@ import java.util.List;
  **/
 public class Activity extends EventClass {
     LinkedList<String> Tags;
+    String department;
 
-    public Activity(String description, String name, User responsable, String... Tags) {
+    public Activity(String description, String name, User responsable, String Department, String... Tags) {
         super(description, name, responsable);
         this.Tags = new LinkedList<>();
+        department = Department;
         for (String s : Tags)
             this.Tags.add(s);
     }
 
     @Override
     public String toString() {
-        return super.name + "; " + super.getResponsableUser().getEmail() + "; " + +coments.size() + enroledUsers.size() + likeNumber + deslikeNumber;
+        return super.getName() + "; " + super.getResponsableUser().getEmail() + "; " + department + super.getCommentNumber() + super.getEnroledNumber() + super.getLikeNumber() + getDeslikeNumber();
     }
 }
