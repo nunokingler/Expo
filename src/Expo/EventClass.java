@@ -64,12 +64,12 @@ public class EventClass implements Event {
 
     @Override
     public void addComment(String comment, User author) {
-// TODO: 27/05/2016
+        coments.add(new CommentClass(author, comment));
     }
 
     @Override
     public void likeComment(String author) {
-// TODO: 27/05/2016
+        if (coments.contains()) ;
     }
 
     @Override

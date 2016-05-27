@@ -89,7 +89,11 @@ public interface ExpoFCT {
 
     public Iterator<String> EventIterator(String... Tags);
 
+    public void CommentOnEvent(String EventName, String Comment) throws EventDoesntExist, UserNotAllowed;
+
     public void EnrolOnEvent(String EventName) throws EventDoesntExist, UserNotAllowed;
 
-    public void
+    public void LikeEvent(String EventName) throws EventDoesntExist;
+
+    public void DeslikeEvent(String EventName) throws EventDoesntExist;
 }

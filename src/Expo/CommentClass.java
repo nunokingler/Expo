@@ -7,14 +7,16 @@ package Expo;
  **/
 public class CommentClass implements Comment {
     //instance variables
+    String comment;
     int likes;
     int deslikes;
     User Author;
 
-    public CommentClass(User author) {
+    public CommentClass(User author, String Comment) {
         this.likes = 0;
         this.deslikes = 0;
         Author = author;
+        this.comment = Comment;
     }
 
     @Override

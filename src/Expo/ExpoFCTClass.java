@@ -225,6 +225,18 @@ public class ExpoFCTClass implements ExpoFCT {
     }
 
     @Override
+    public void CommentOnEvent(String EventName, String Comment) throws EventDoesntExist, UserNotAllowed {
+        if (log == null || !log.canComment())
+            throw new UserNotAllowed();
+        if (eventMap.containsKey(EventName))
+            throw new EventDoesntExist();
+
+        Event e = eventMap.get(EventName);
+        e.addComment(Comment, log);
+        eventMap.put(EventName, e);
+    }
+
+    @Override
     public void EnrolOnEvent(String EventName) throws EventDoesntExist, UserNotAllowed {
         if (!eventMap.containsKey(EventName))
             throw new EventDoesntExist();
@@ -233,6 +245,24 @@ public class ExpoFCTClass implements ExpoFCT {
 
         Event e = eventMap.get(EventName);
         e.setEnroledUsers(log);
+        eventMap.put(EventName, e);
     }
 
+    @Override
+    public void LikeEvent(String EventName) throws EventDoesntExist {
+        if (!eventMap.containsKey(EventName))
+            throw new EventDoesntExist();
+        Event e = eventMap.get(EventName);
+        e.incLikes();
+        eventMap.put(EventName, e);
+    }
+
+    @Override
+    public void DeslikeEvent(String EventName) throws EventDoesntExist {
+        if (!eventMap.containsKey(EventName))
+            throw new EventDoesntExist();
+        Event e = eventMap.get(EventName);
+        e.incDeslikes();
+        eventMap.put(EventName, e);
+    }
 }
