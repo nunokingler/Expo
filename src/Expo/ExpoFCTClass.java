@@ -18,7 +18,7 @@ public class ExpoFCTClass implements ExpoFCT {
     private List<Department> Departments;
     private User log;
     private Map<String, Event> eventMap;
-    private Map<String, Event[]>;
+    private Map<String, Event[]> tags;
 
     //constructor
 

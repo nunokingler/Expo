@@ -80,6 +80,13 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String opcao = in.nextLine().toUpperCase();
         exp = new ExpoFCTClass();
+        try {
+            exp.RegisterEvent("ola", "suas");
+        } catch (UserNotAllowed userNotAllowed) {
+            userNotAllowed.printStackTrace();
+        } catch (EventNameTaken eventNameTaken) {
+            eventNameTaken.printStackTrace();
+        }
         while (!opcao.equals(EXIT)) {
             switch (opcao) {
                 case LOGIN:
