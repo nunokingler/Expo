@@ -122,8 +122,10 @@ public class Main {
 
     private static void function_dept(Scanner in) {
         String dept = in.nextLine();
+        String init = in.nextLine();
+        String location = in.nextLine();
         try {
-            exp.AddDepartment(dept);
+            exp.AddDepartment(dept, init, location);
             System.out.println(DEPT_1);
         } catch (UserNotAllowed userNotAllowed) {
             System.out.println(DEPT_ERROR_1);
