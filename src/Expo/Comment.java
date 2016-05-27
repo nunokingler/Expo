@@ -6,4 +6,14 @@ package Expo;
  * 1996-Present no rights reserved
  **/
 public interface Comment {
+    User getUser();
+
+    int getLikes();
+
+    int getDeslikes();
+
+
+    void incLikes();
+
+    void incDeslikes();
 }
