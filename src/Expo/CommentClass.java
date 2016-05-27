@@ -6,11 +6,16 @@ package Expo;
  * 1996-Present no rights reserved
  **/
 public class CommentClass implements Comment {
-    //instance variaables
+    //instance variables
     int likes;
     int deslikes;
     User Author;
 
+    public CommentClass(User author) {
+        this.likes = 0;
+        this.deslikes = 0;
+        Author = author;
+    }
 
     @Override
     public User getUser() {
