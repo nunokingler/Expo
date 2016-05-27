@@ -7,7 +7,7 @@ package Expo;
  **/
 public class AdminClass extends UserClass implements Admin {
     //class variables
-    private static int ADMIN_NUMBER = 0;
+    private static int ADMIN_NUMBER = 1;
     private static final String PASSWORD_PREFIX = "admin";
     private static final String USER_NAME = "ADMIN";
 

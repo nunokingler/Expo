@@ -7,7 +7,7 @@ package Expo;
  **/
 public class StaffClass extends UserClass implements Staff {
     //class variables
-    private static int STAFF_NUMBER = 0;
+    private static int STAFF_NUMBER = 1;
     private static final String PASSWORD_PREFIX = "staff";
     private static final String USER_NAME = "STAFF";
 

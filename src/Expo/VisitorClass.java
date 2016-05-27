@@ -9,7 +9,7 @@ import java.util.LinkedList;
  **/
 public class VisitorClass extends UserClass implements Visitor {
     //class variables
-    private static int VISITOR_NUMBER = 0;
+    private static int VISITOR_NUMBER = 1;
     private static final String PASSWORD_PREFIX = "visitor";
     private static final String USER_NAME = "VISITOR";
 
