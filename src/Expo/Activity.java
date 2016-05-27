@@ -1,12 +1,20 @@
 package Expo;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by Cavaco on 23/05/2016 at 15:21 in nunokingler's pc.
  * File originaly created to fulfill project #ExpoFCT in pacage Expo.
  * 1996-Present no rights reserved
  **/
 public class Activity extends EventClass {
-    public Activity(String description, String name, User responsable) {
+    LinkedList<String> Tags;
+
+    public Activity(String description, String name, User responsable, String... Tags) {
         super(description, name, responsable);
+        this.Tags = new LinkedList<>();
+        for (String s : Tags)
+            this.Tags.add(s);
     }
 }

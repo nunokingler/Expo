@@ -18,7 +18,7 @@ public class ExpoFCTClass implements ExpoFCT {
     private List<Department> Departments;
     private User log;
     private Map<String, Event> eventMap;
-    private Map<String, Event[]> tags;
+    private Map<String, List<Event>> tags;
 
     //constructor
 
@@ -166,13 +166,25 @@ public class ExpoFCTClass implements ExpoFCT {
         return link.iterator();
     }
     @Override
-    public void RegisterEvent(String name, String description, String... s) throws UserNotAllowed, EventNameTaken {
+    public void RegisterEvent(String name, String description, String... Tags) throws UserNotAllowed, EventNameTaken {
+        int i = 0;
+        i++;
         if (log == null || log.canRegisterEvent())
             throw new UserNotAllowed();
         if (eventMap.containsKey(name))
             throw new EventNameTaken();
-
+        Event e;
+        if (Tags.length == 0) {
+            e = new EventClass(description, name, log);
+        } else {
+            e = new Activity(description, name, log, Tags);
+            if (Tags.length == 0)
+                tags.get("").add(e);
+            for (String s : Tags) {
+                LinkedList<Event> a = (LinkedList<Event>) tags.get(s);
+                a.add(e);
+            }
+        }
     }
-
 
 }
