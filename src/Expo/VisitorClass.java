@@ -32,6 +32,11 @@ public class VisitorClass extends UserClass implements Visitor {
     }
 
     @Override
+    public boolean canRegisterEvent() {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return super.getEmail() + "; " + USER_NAME;
     }

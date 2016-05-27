@@ -27,6 +27,11 @@ public class AdminClass extends UserClass implements Admin {
     }
 
     @Override
+    public boolean canRegisterEvent() {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return super.getEmail() + "; " + USER_NAME;
     }

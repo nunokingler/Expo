@@ -21,4 +21,7 @@ public interface User {
     public boolean canAddDepartments();
 
     boolean canListUsers();
+
+    boolean canRegisterEvent();
+
 }

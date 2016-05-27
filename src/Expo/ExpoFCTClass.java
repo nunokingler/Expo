@@ -165,9 +165,14 @@ public class ExpoFCTClass implements ExpoFCT {
         }
         return link.iterator();
     }
-
     @Override
-    public void RegisterEvent(String name, String description, String...) throws UserNotAllowed, EventNameTaken;
+    public void RegisterEvent(String name, String description, String... s) throws UserNotAllowed, EventNameTaken {
+        if (log == null || log.canRegisterEvent())
+            throw new UserNotAllowed();
+        if (eventMap.containsKey(name))
+            throw new EventNameTaken();
+
+    }
 
 
 }

@@ -75,4 +75,6 @@ public interface ExpoFCT {
      * @throws UserNotAllowed If logged user is not Admin
      */
     public Iterator<String> StaffIterator() throws UserNotAllowed;
+
+    public void RegisterEvent(String name, String description, String... s) throws UserNotAllowed, EventNameTaken;
 }

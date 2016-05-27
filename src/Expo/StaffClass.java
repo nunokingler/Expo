@@ -33,4 +33,9 @@ public class StaffClass extends UserClass implements Staff {
     public boolean canListUsers() {
         return false;
     }
+
+    @Override
+    public boolean canRegisterEvent() {
+        return true;
+    }
 }
