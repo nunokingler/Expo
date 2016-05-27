@@ -115,6 +115,9 @@ public class Main {
                 case NEWEVENT:
                     function_newEvent(in);
                     break;
+                case EVENTS:
+                    funtion_events();
+                    break;
 
                 default:
                     System.out.println("ERRO bitch");
@@ -125,6 +128,13 @@ public class Main {
         System.out.println("Exiting.");
         System.out.println();
         in.close();
+    }
+
+    private static void funtion_events() {
+        Iterator<String> it = exp.EventIterator();
+        System.out.println(EVENTS_1);
+        while (it.hasNext())
+            System.out.println(it.next());
     }
 
     private static void funtion_newActivity(Scanner in) {
