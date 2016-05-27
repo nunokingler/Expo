@@ -24,6 +24,8 @@ public class Main {
     private static final String NEWEVENT = "NEWEVENT";
     private static final String USERS = "USERS";
     private static final String DEPT = "DEPT";
+    private static final String NEWACTIVITY = "NEWACTIVITY";
+
 
 
     //unregistered user messeges and error messeges
@@ -80,13 +82,6 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String opcao = in.nextLine().toUpperCase();
         exp = new ExpoFCTClass();
-        try {
-            exp.RegisterEvent("ola", "suas");
-        } catch (UserNotAllowed userNotAllowed) {
-            userNotAllowed.printStackTrace();
-        } catch (EventNameTaken eventNameTaken) {
-            eventNameTaken.printStackTrace();
-        }
         while (!opcao.equals(EXIT)) {
             switch (opcao) {
                 case LOGIN:
@@ -114,7 +109,8 @@ public class Main {
                 case DEPT:
                     function_dept(in);
                     break;
-
+                case NEWACTIVITY:
+                case NEWEVENT:
 
                 default:
                     System.out.println("ERRO bitch");
