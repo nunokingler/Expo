@@ -22,7 +22,7 @@ public class Activity extends EventClass {
 
     @Override
     public String toString() {
-        return super.getName() + "; " + super.getResponsableUser().getEmail() + "; " + department + super.getCommentNumber() + super.getEnroledNumber() + super.getLikeNumber() + getDeslikeNumber();
+        return super.getName() + "; " + super.getResponsableUser().getEmail() + "; " + department + "; " + super.getCommentNumber() + "; " + super.getEnroledNumber() + "; " + super.getLikeNumber() + "; " + getDeslikeNumber() + ";";
     }
 
     @Override
