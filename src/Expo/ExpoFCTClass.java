@@ -200,8 +200,13 @@ public class ExpoFCTClass implements ExpoFCT {
     public Iterator<String> EventIterator(String... Tags) {
         Iterator<Map.Entry<String, Event>> it = eventMap.entrySet().iterator();
         LinkedList<Event> link = new LinkedList<>();
-        while (it.hasNext())
-            link.add(it.next().getValue());
+        while (it.hasNext()) {
+            Map.Entry<String, Event> c = it.next();
+            if (Tags.length == 0)
+                link.add(c.getValue());
+            else if (c.getValue().hasTag(Tags[0]))
+                link.add(c.getValue());
+        }
         boolean changed = false;
         while (!changed) {
             changed = true;

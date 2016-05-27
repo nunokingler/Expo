@@ -41,4 +41,7 @@ public interface Event {
     void incLikes();
 
     void incDeslikes();
+
+    boolean hasTag(String tag);
+
 }

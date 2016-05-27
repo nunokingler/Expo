@@ -113,6 +113,11 @@ public class EventClass implements Event {
     }
 
     @Override
+    public boolean hasTag(String tag) {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return name + "; " + responsable.getEmail() + "; " + coments.size() + enroledUsers.size() + likeNumber + deslikeNumber;
     }

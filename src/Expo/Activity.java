@@ -24,4 +24,9 @@ public class Activity extends EventClass {
     public String toString() {
         return super.getName() + "; " + super.getResponsableUser().getEmail() + "; " + department + super.getCommentNumber() + super.getEnroledNumber() + super.getLikeNumber() + getDeslikeNumber();
     }
+
+    @Override
+    public boolean hasTag(String Tag) {
+        return Tags.contains(Tag);
+    }
 }
