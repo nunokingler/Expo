@@ -14,8 +14,6 @@ public interface Event {
 
     User getResponsableUser();
 
-    void setResponsibleUser();
-
     Iterator<User> getEnroledUsersIterator();
 
     Iterator<Comment> getComentIterator();
@@ -24,7 +22,18 @@ public interface Event {
 
     int getDeslikeNumber();
 
+
+    public void setResponsibleUser();
+
+    public void setComents(Comment coment);
+
+    public void setEnroledUsers(User u);
+
+    public void setDescription(String description);
+
+    public void setName(String name);
+
     void incLikes();
 
-    void inceDeslikes();
+    void incDeslikes();
 }
