@@ -6,4 +6,34 @@ package Expo;
  * 1996-Present no rights reserved
  **/
 public class CommentClass implements Comment {
+    //instance variaables
+    int likes;
+    int deslikes;
+    User Author;
+
+
+    @Override
+    public User getUser() {
+        return Author;
+    }
+
+    @Override
+    public int getLikes() {
+        return likes;
+    }
+
+    @Override
+    public int getDeslikes() {
+        return deslikes;
+    }
+
+    @Override
+    public void incLikes() {
+        likes++;
+    }
+
+    @Override
+    public void incDeslikes() {
+        deslikes++;
+    }
 }
