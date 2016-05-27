@@ -190,6 +190,7 @@ public class ExpoFCTClass implements ExpoFCT {
                 tags.put(s, a);
             }
         }
+        eventMap.put(name, e);
     }
 
     @Override
