@@ -51,6 +51,7 @@ public class EventClass implements Event {
         return deslikeNumber;
     }
 
+
     public Iterator<User> getEnroledUsersIterator() {
         return enroledUsers.iterator();
     }

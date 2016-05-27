@@ -23,8 +23,6 @@ public interface Event {
     int getDeslikeNumber();
 
 
-    public void setResponsibleUser();
-
     public void setComents(Comment coment);
 
     public void setEnroledUsers(User u);
