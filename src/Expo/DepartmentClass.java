@@ -29,4 +29,18 @@ public class DepartmentClass implements Department {
     public String getLocation() {
         return location;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this)
+            return true;
+        if (!(obj instanceof Department))
+            return false;
+        Department d = (Department) obj;
+        return equals(d);
+    }
+
+    public boolean equals(Department d) {
+        return d.getName().equals(name) || d.getInitials().equals(initials);
+    }
 }
