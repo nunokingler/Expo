@@ -35,11 +35,11 @@ public class EventClass implements Event {
         return description;
     }
 
-    public User getResponsable() {
+    public User getResponsableUser() {
         return responsable;
     }
 
-    public Iterator<Comment> getComents() {
+    public Iterator<Comment> getComentIterator() {
         return coments.iterator();
     }
 
@@ -51,7 +51,7 @@ public class EventClass implements Event {
         return deslikeNumber;
     }
 
-    public Iterator<User> getEnroledUsers() {
+    public Iterator<User> getEnroledUsersIterator() {
         return enroledUsers.iterator();
     }
     //**set**
