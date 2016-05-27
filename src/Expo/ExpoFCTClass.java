@@ -15,7 +15,7 @@ public class ExpoFCTClass implements ExpoFCT {
 
     //instance variables
     private Map<String, User> userHashMap;
-    private List<String> Departments;
+    private List<Department> Departments;
     private User log;
     //um hashmap<tags,events> para cada tag
 
@@ -106,15 +106,18 @@ public class ExpoFCTClass implements ExpoFCT {
     /**
      * Adds a department to the expo
      * @param Department The name of the department to be added
+     * @param initials The initials of the department
+     * @param location The location of the department
      * @throws UserNotAllowed   If the current logged in user is not allowed to add new departments
      * @throws DepartmentAlreadyExists  If a department with that name has already been added
      */
-    public void AddDepartment(String Department) throws UserNotAllowed, DepartmentAlreadyExists {
+    public void AddDepartment(String Department, String initials, String location) throws UserNotAllowed, DepartmentAlreadyExists {
         if (log == null || !log.canAddDepartments())
             throw new UserNotAllowed();
-        if (Departments.contains(Department))
+        Expo.Department d = new DepartmentClass(Department, initials, location);
+        if (Departments.contains(d))
             throw new DepartmentAlreadyExists();
-        this.Departments.add(Department);
+        this.Departments.add(d);
     }
 
     @Override
