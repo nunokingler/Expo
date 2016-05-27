@@ -19,7 +19,6 @@ public abstract class UserClass implements User {
         this.email = email;
         this.password = password;
     }
-
     //**set**
     public void setPassword(String password) {
         this.password = password;

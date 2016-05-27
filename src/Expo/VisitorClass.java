@@ -13,9 +13,13 @@ public class VisitorClass extends UserClass implements Visitor {
     private static final String PASSWORD_PREFIX = "visitor";
     private static final String USER_NAME = "VISITOR";
 
+    //instance variables
+    private int commentNumber;
+
     //constructor
     public VisitorClass(String email) {
         super(email, PASSWORD_PREFIX + VISITOR_NUMBER++);
+        commentNumber = 0;
     }
 
     //instance variables
@@ -49,5 +53,15 @@ public class VisitorClass extends UserClass implements Visitor {
     @Override
     public boolean canEnrol() {
         return true;
+    }
+
+    @Override
+    public int getCommentNumber() {
+        return commentNumber;
+    }
+
+    @Override
+    public void incComment() {
+        commentNumber++;
     }
 }
