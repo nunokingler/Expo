@@ -16,4 +16,5 @@ public interface Comment {
     void incLikes();
 
     void incDeslikes();
+
 }

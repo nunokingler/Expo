@@ -1,10 +1,9 @@
 package Expo;
 
+import Exeptions.CommentDoesNotExist;
 import com.sun.xml.internal.bind.v2.TODO;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Cavaco on 23/05/2016 at 15:21 in nunokingler's pc.
@@ -16,8 +15,8 @@ public class EventClass implements Event {
     private String name;
     private String description;
     private User responsable;
-    private List<User> enroledUsers;
-    private List<Comment> coments;
+    private Map<String, User> enroledUsers;
+    private Map<String, Comment> coments;
     private int likeNumber;
     private int deslikeNumber;
 
@@ -27,8 +26,8 @@ public class EventClass implements Event {
         this.description = description;
         this.name = name;
         this.responsable = responsable;
-        enroledUsers = new LinkedList<>();
-        coments = new LinkedList<>();
+        enroledUsers = new HashMap<>();
+        coments = new HashMap<>();
     }
     //**get**
 
@@ -45,7 +44,11 @@ public class EventClass implements Event {
     }
 
     public Iterator<Comment> getComentIterator() {
-        return coments.iterator();
+        Iterator<Map.Entry<String, Comment>> it = coments.entrySet().iterator();
+        LinkedList<Comment> link = new LinkedList<>();
+        while (it.hasNext())
+            link.add(it.next().getValue());
+        return link.iterator();
     }
 
     @Override
@@ -64,22 +67,35 @@ public class EventClass implements Event {
 
     @Override
     public void addComment(String comment, User author) {
-        coments.add(new CommentClass(author, comment));
+        coments.put(author.getEmail(), new CommentClass(author, comment));
     }
 
     @Override
-    public void likeComment(String author) {
-        if (coments.contains()) ;
+    public void likeComment(String author) throws CommentDoesNotExist {
+        if (!coments.containsKey(author))
+            throw new CommentDoesNotExist();
+        Comment c = coments.get(author);
+        c.incLikes();
+        coments.put(author, c);
     }
 
     @Override
-    public void deslikeComment(String author) {
-        // TODO: 27/05/2016
+    public void deslikeComment(String author) throws CommentDoesNotExist {
+        if (!coments.containsKey(author))
+            throw new CommentDoesNotExist();
+        Comment c = coments.get(author);
+        c.incDeslikes();
+        coments.put(author, c);
     }
 
 
     public Iterator<User> getEnroledUsersIterator() {
-        return enroledUsers.iterator();
+        Iterator<Map.Entry<String, User>> it = enroledUsers.entrySet().iterator();
+        LinkedList<User> link = new LinkedList<>();
+        while (it.hasNext()) {
+            link.add(it.next().getValue());
+        }
+        return link.iterator();
     }
 
     @Override
@@ -88,12 +104,12 @@ public class EventClass implements Event {
     }
     //**set**
 
-    public void setComents(Comment coment) {
-        this.coments.add(coment);
+    public void setComents(Comment coment, User u) {
+        this.coments.put(u.getEmail(), coment);
     }
 
     public void setEnroledUsers(User u) {
-        this.enroledUsers.add(u);
+        this.enroledUsers.put(u.getEmail(), u);
     }
 
     public void setDescription(String description) {

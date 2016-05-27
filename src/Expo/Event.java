@@ -1,5 +1,7 @@
 package Expo;
 
+import Exeptions.CommentDoesNotExist;
+
 import java.util.Iterator;
 
 /**
@@ -28,9 +30,9 @@ public interface Event {
 
     public void addComment(String comment, User author);
 
-    public void likeComment(String author);
+    public void likeComment(String author) throws CommentDoesNotExist;
 
-    public void deslikeComment(String author);
+    public void deslikeComment(String author) throws CommentDoesNotExist;
 
     public void setEnroledUsers(User u);
 
