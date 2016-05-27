@@ -1,6 +1,9 @@
 package Expo;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,6 +27,8 @@ public class EventClass implements Event {
         this.description = description;
         this.name = name;
         this.responsable = responsable;
+        enroledUsers = new LinkedList<>();
+        coments = new LinkedList<>();
     }
     //**get**
 
@@ -43,6 +48,12 @@ public class EventClass implements Event {
         return coments.iterator();
     }
 
+    @Override
+    public int getCommentNumber() {
+        return coments.size();
+    }
+
+
     public int getLikeNumber() {
         return likeNumber;
     }
@@ -51,9 +62,29 @@ public class EventClass implements Event {
         return deslikeNumber;
     }
 
+    @Override
+    public void addComment(String comment, User author) {
+// TODO: 27/05/2016
+    }
+
+    @Override
+    public void likeComment(String author) {
+// TODO: 27/05/2016
+    }
+
+    @Override
+    public void deslikeComment(String author) {
+        // TODO: 27/05/2016
+    }
+
 
     public Iterator<User> getEnroledUsersIterator() {
         return enroledUsers.iterator();
+    }
+
+    @Override
+    public int getEnroledNumber() {
+        return enroledUsers.size();
     }
     //**set**
 
@@ -79,5 +110,10 @@ public class EventClass implements Event {
 
     public void incDeslikes() {
         deslikeNumber++;
+    }
+
+    @Override
+    public String toString() {
+        return name + "; " + responsable.getEmail() + "; " + +coments.size() + enroledUsers.size() + likeNumber + deslikeNumber;
     }
 }

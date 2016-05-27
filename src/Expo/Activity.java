@@ -17,4 +17,9 @@ public class Activity extends EventClass {
         for (String s : Tags)
             this.Tags.add(s);
     }
+
+    @Override
+    public String toString() {
+        return super.name + "; " + super.getResponsableUser().getEmail() + "; " + +coments.size() + enroledUsers.size() + likeNumber + deslikeNumber;
+    }
 }

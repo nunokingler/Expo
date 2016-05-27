@@ -16,14 +16,21 @@ public interface Event {
 
     Iterator<User> getEnroledUsersIterator();
 
+    public int getEnroledNumber();
+
     Iterator<Comment> getComentIterator();
+
+    public int getCommentNumber();
 
     int getLikeNumber();
 
     int getDeslikeNumber();
 
+    public void addComment(String comment, User author);
 
-    public void setComents(Comment coment);
+    public void likeComment(String author);
+
+    public void deslikeComment(String author);
 
     public void setEnroledUsers(User u);
 
