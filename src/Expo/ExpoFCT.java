@@ -87,5 +87,5 @@ public interface ExpoFCT {
      */
     public void RegisterEvent(String name, String description, String... Tags) throws UserNotAllowed, EventNameTaken;
 
-    public Iterator<String> EventIterator();
+    public Iterator<String> EventIterator(String... Tags);
 }

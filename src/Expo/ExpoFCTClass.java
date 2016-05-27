@@ -193,10 +193,27 @@ public class ExpoFCTClass implements ExpoFCT {
     }
 
     @Override
-    public Iterator<String> EventIterator() {
-        return null;
-
-
+    public Iterator<String> EventIterator(String... Tags) {
+        Iterator<Map.Entry<String, Event>> it = eventMap.entrySet().iterator();
+        LinkedList<Event> link = new LinkedList<>();
+        while (it.hasNext())
+            link.add(it.next().getValue());
+        boolean changed = false;
+        while (!changed) {
+            changed = true;
+            for (int i = 0; i < link.size() - 1; i++) {
+                if (link.get(i).getLikeNumber() > link.get(i + 1).getLikeNumber()) {
+                    Collections.swap(link, i, i + 1);
+                    changed = false;
+                    //fazer iterador transportes percorrer tudo e ir adicionandpo por ordem a linked list. guardar a distancia e o transporte adicionado anteriormente ter antençao transportes com a mesma distancia
+                }
+            }
+        }
+        LinkedList<String> str = new LinkedList<>();
+        Iterator iter = link.iterator();
+        while (it.hasNext())
+            str.add(iter.next().toString());
+        return str.iterator();
     }
 
 }
