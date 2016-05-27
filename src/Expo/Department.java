@@ -6,4 +6,9 @@ package Expo;
  * 1996-Present no rights reserved
  **/
 public interface Department {
+    public String getName();
+
+    public String getInitials();
+
+    public String getLocation();
 }
