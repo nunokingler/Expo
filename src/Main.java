@@ -110,7 +110,11 @@ public class Main {
                     function_dept(in);
                     break;
                 case NEWACTIVITY:
+                    funtion_newActivity(in);
+                    break;
                 case NEWEVENT:
+                    function_newEvent(in);
+                    break;
 
                 default:
                     System.out.println("ERRO bitch");
@@ -121,6 +125,42 @@ public class Main {
         System.out.println("Exiting.");
         System.out.println();
         in.close();
+    }
+
+    private static void funtion_newActivity(Scanner in) {
+        String name = in.nextLine();
+        String desc = in.nextLine();
+        int i = in.nextInt();
+        if (in.hasNextLine())
+            in.nextLine();
+        String[] str = new String[0];
+        if (i > 0) {
+            str = new String[i];
+            for (i--; i >= 0; i--) {
+                str[i] = in.nextLine();
+            }
+        }
+        try {
+            exp.RegisterEvent(name, desc, str);
+            System.out.println(NEWEVENT_1);
+        } catch (UserNotAllowed userNotAllowed) {
+            System.out.println(NEWEVENT_ERROR_1);
+        } catch (EventNameTaken eventNameTaken) {
+            System.out.println(NEWEVENT_ERROR_2);
+        }
+    }
+
+    private static void function_newEvent(Scanner in) {
+        String name = in.nextLine();
+        String desc = in.nextLine();
+        try {
+            exp.RegisterEvent(name, desc);
+            System.out.println(NEWEVENT_1);
+        } catch (UserNotAllowed userNotAllowed) {
+            System.out.println(NEWEVENT_ERROR_1);
+        } catch (EventNameTaken eventNameTaken) {
+            System.out.println(NEWEVENT_ERROR_2);
+        }
     }
 
     private static void function_dept(Scanner in) {

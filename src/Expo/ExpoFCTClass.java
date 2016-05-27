@@ -27,6 +27,8 @@ public class ExpoFCTClass implements ExpoFCT {
         userHashMap = new TreeMap<>();
         Departments = new ArrayList<>();
         log = null;
+        eventMap = new HashMap<>();
+        tags = new HashMap<>();
     }
     //Interface methods
 
@@ -53,7 +55,7 @@ public class ExpoFCTClass implements ExpoFCT {
                 u = new AdminClass(email);
                 break;
             case 1:
-                if (Department.length != 1 || Departments.contains(Department[0]))
+                if (Department.length != 1 || !Departments.contains(new DepartmentClass(Department[0], "", "")))
                     throw new DepartmentDoesNotExist();
                 u = new StaffClass(email, Department[0]);
                 break;
@@ -167,9 +169,7 @@ public class ExpoFCTClass implements ExpoFCT {
     }
     @Override
     public void RegisterEvent(String name, String description, String... Tags) throws UserNotAllowed, EventNameTaken {
-        int i = 0;
-        i++;
-        if (log == null || log.canRegisterEvent())
+        if (log == null || !log.canRegisterEvent())
             throw new UserNotAllowed();
         if (eventMap.containsKey(name))
             throw new EventNameTaken();
@@ -182,7 +182,12 @@ public class ExpoFCTClass implements ExpoFCT {
                 tags.get("").add(e);
             for (String s : Tags) {
                 LinkedList<Event> a = (LinkedList<Event>) tags.get(s);
+                if (a != null) {
+                    tags.remove(s);
+                } else
+                    a = new LinkedList<>();
                 a.add(e);
+                tags.put(s, a);
             }
         }
     }
