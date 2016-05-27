@@ -121,7 +121,23 @@ public class Main {
                 case BYTAG:
                     funtion_byTag(in);
                     break;
-
+                case COMMENTS:
+                    function_comments(in);
+                    break;
+                case LISTBYCOMMENTS:
+                    function_byComments();
+                    break;
+                case LIKE:
+                    function_like(in);
+                    break;
+                case DESLIKE:
+                    function_deslike(in);
+                    break;
+                case LIKECOMMENT:
+                    function_likeComment(in);
+                    break;
+                case TOPCOMMENT:
+                    function_topComment(in);
                 default:
                     System.out.println("ERRO bitch");
                     break;
