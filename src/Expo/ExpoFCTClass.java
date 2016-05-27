@@ -191,6 +191,8 @@ public class ExpoFCTClass implements ExpoFCT {
             }
         }
         eventMap.put(name, e);
+        int i = 0;
+        i++;
     }
 
     @Override
@@ -212,7 +214,7 @@ public class ExpoFCTClass implements ExpoFCT {
         }
         LinkedList<String> str = new LinkedList<>();
         Iterator iter = link.iterator();
-        while (it.hasNext())
+        while (iter.hasNext())
             str.add(iter.next().toString());
         return str.iterator();
     }
