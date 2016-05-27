@@ -43,4 +43,9 @@ public class CommentClass implements Comment {
     public void incDeslikes() {
         deslikes++;
     }
+
+    @Override
+    public String toString() {
+        return comment + "; " + Author.getEmail() + "; " + likes;
+    }
 }

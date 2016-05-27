@@ -96,4 +96,6 @@ public interface ExpoFCT {
     public void LikeEvent(String EventName) throws EventDoesntExist;
 
     public void DeslikeEvent(String EventName) throws EventDoesntExist;
+
+    public Iterator<String> CommentIterator(String EventName) throws EventDoesntExist;
 }

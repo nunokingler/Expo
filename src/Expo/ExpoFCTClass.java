@@ -265,4 +265,16 @@ public class ExpoFCTClass implements ExpoFCT {
         e.incDeslikes();
         eventMap.put(EventName, e);
     }
+
+    @Override
+    public Iterator<String> CommentIterator(String EventName) throws EventDoesntExist {
+        if (eventMap.containsKey(EventName))
+            throw new EventDoesntExist();
+        Event e = eventMap.get(EventName);
+        Iterator<Comment> it = e.getComentIterator();
+        LinkedList<String> link = new LinkedList<>();
+        while (it.hasNext())
+            link.add(0, it.next().toString());
+        return link.iterator();
+    }
 }
