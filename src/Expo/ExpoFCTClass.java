@@ -224,4 +224,15 @@ public class ExpoFCTClass implements ExpoFCT {
         return str.iterator();
     }
 
+    @Override
+    public void EnrolOnEvent(String EventName) throws EventDoesntExist, UserNotAllowed {
+        if (!eventMap.containsKey(EventName))
+            throw new EventDoesntExist();
+        if (log == null || !log.canEnrol())
+            throw new UserNotAllowed();
+
+        Event e = eventMap.get(EventName);
+        e.setEnroledUsers(log);
+    }
+
 }
