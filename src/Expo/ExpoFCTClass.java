@@ -17,7 +17,8 @@ public class ExpoFCTClass implements ExpoFCT {
     private Map<String, User> userHashMap;
     private List<Department> Departments;
     private User log;
-    //um hashmap<tags,events> para cada tag
+    private Map<String, Event> eventMap;
+    private Map<String, Event[]>;
 
     //constructor
 
@@ -164,6 +165,9 @@ public class ExpoFCTClass implements ExpoFCT {
         }
         return link.iterator();
     }
+
+    @Override
+    public void RegisterEvent(String name, String description, String...) throws UserNotAllowed, EventNameTaken;
 
 
 }
